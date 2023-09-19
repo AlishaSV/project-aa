@@ -1,10 +1,9 @@
-import {RegistrationForm} from "@/components/registrationForm";
+import {RegistrationForm} from "@/components/registrationForm/registrationForm";
 
-export default function SignUp () {
-    return (<div>
-        SIGN UP
-        <div>
+export default function SignUp() {
+    return (
+        <main>
             <RegistrationForm/>
-        </div>
-    </div>)
+        </main>
+    )
 }
