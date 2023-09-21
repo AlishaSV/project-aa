@@ -1,4 +1,6 @@
-import {StyledAccount, StyledHeader} from "@/components/styledComponents/account/styledAccount";
+import {StyledAccount} from "@/components/styledComponents/account/styledAccount";
+import {StyledHeader} from "@/components/styledComponents/account/styledHeader";
+import {StyledDiv} from "@/components/styledComponents/account/StyledDiv";
 
 type TMyAccount = {
     fullName: string,
@@ -14,10 +16,10 @@ export const MyAccount = ({fullName, email, birthDate, phoneNumber}: TMyAccount)
                 My Account
             </StyledHeader>
             <StyledAccount>
-                <div>{fullName}</div>
-                <div>{email}</div>
-                <div>{birthDate}</div>
-                <div>{phoneNumber}</div>
+                <StyledDiv>{fullName}</StyledDiv>
+                <StyledDiv>{email}</StyledDiv>
+                <StyledDiv>{birthDate}</StyledDiv>
+                <StyledDiv>{phoneNumber}</StyledDiv>
             </StyledAccount>
         </div>
     )
