@@ -22,7 +22,7 @@ export const UserMainInfo = ({ id, email, fullName, createdAt }: TUserMainInfoPr
           <span>fullName: {fullName}</span>
         </li>
         <li>
-          <span>createdAt: {createdAt}</span>
+          <span>createdAt: {new Date(parseInt(createdAt)).toDateString()}</span>
         </li>
       </ul>
     </StyledGetUserMainInfo>
