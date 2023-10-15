@@ -1,3 +1,5 @@
+import { useRouter } from 'next/navigation';
+
 type TUserListItemProps = {
   id: string;
   email: string;
@@ -5,8 +7,13 @@ type TUserListItemProps = {
 };
 
 export const UserListItem = ({ id, email, fullName }: TUserListItemProps) => {
+  const router = useRouter();
   return (
-    <div>
+    <div
+      onClick={() => {
+        router.push(`/user/${id}`);
+      }}
+    >
       <span>{id}:</span>
       <span>{email}:</span>
       <span>{fullName}</span>

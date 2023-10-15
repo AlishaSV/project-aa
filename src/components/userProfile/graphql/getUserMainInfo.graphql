@@ -1,0 +1,8 @@
+query getUserMainInfo($id:Int!) {
+    getUserInfo(filters: {id: $id}) {
+        id
+        email
+        fullName
+        createdAt
+    }
+}
