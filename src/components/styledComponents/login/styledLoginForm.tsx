@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import styled from "@emotion/styled";
-import {Form} from "formik";
+import styled from '@emotion/styled';
+import { Form } from 'formik';
 
 export const StyledLoginForm = styled(Form)`
   display: flex;
@@ -13,4 +13,3 @@ export const StyledLoginForm = styled(Form)`
   flex-wrap: wrap;
   justify-content: space-evenly;
 `;
-

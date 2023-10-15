@@ -1,9 +1,9 @@
 body {
-    background: #fce373;
+  background: #fce373;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

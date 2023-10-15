@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const StyledErrors = styled.div`
   display: flex;
@@ -7,4 +7,4 @@ export const StyledErrors = styled.div`
   color: red;
   font-family: inherit;
   font-size: small;
-`
+`;
