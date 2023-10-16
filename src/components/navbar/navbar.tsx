@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 export const StyledNavbar = styled.div`
   display: flex;
   gap: 10px;
+  margin-right: 50px;
 `;
 
 const links: TNavLinkProps[] = [{ url: '/users', title: 'users' }];

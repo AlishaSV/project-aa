@@ -1,12 +1,12 @@
 import { useRouter } from 'next/navigation';
 
-type TUserListItemProps = {
+export type TUserListItemProps = {
   id: string;
   email: string;
   fullName: string;
 };
 
-export const UserListItem = ({ id, email, fullName }: TUserListItemProps) => {
+export const UsersGridItem = ({ id, email, fullName }: TUserListItemProps) => {
   const router = useRouter();
   return (
     <tr

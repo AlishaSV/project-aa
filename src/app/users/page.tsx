@@ -1,10 +1,11 @@
-import { UsersList } from '@/components/usersList';
+import { UsersGrid } from '@/components/usersGrid';
+import { StyledUsers } from '@/components/styledComponents/user/styledUsers';
 
 const Users = () => {
   return (
     <>
-      <div>Admins</div>
-      <UsersList />
+      <StyledUsers>Admins</StyledUsers>
+      <UsersGrid />
     </>
   );
 };
