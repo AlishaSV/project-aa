@@ -9,3 +9,9 @@ export const StyledTable = styled.table`
   border: 2px solid #787979;
   max-width: 700px;
 `;
+
+export const StyledTableRow = styled.tr`
+  &:hover {
+    cursor: pointer;
+  }
+`;

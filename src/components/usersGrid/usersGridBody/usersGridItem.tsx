@@ -1,4 +1,5 @@
 import { useRouter } from 'next/navigation';
+import { StyledTableRow } from '@/components/styledComponents/table/styledTable';
 
 export type TUserListItemProps = {
   id: string;
@@ -9,7 +10,7 @@ export type TUserListItemProps = {
 export const UsersGridItem = ({ id, email, fullName }: TUserListItemProps) => {
   const router = useRouter();
   return (
-    <tr
+    <StyledTableRow
       onClick={() => {
         router.push(`/user/${id}`);
       }}
@@ -17,6 +18,6 @@ export const UsersGridItem = ({ id, email, fullName }: TUserListItemProps) => {
       <td>{id}</td>
       <td>{email}</td>
       <td>{fullName}</td>
-    </tr>
+    </StyledTableRow>
   );
 };
