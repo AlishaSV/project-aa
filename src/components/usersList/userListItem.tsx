@@ -9,14 +9,14 @@ type TUserListItemProps = {
 export const UserListItem = ({ id, email, fullName }: TUserListItemProps) => {
   const router = useRouter();
   return (
-    <div
+    <tr
       onClick={() => {
         router.push(`/user/${id}`);
       }}
     >
-      <span>{id}:</span>
-      <span>{email}:</span>
-      <span>{fullName}</span>
-    </div>
+      <td>{id}</td>
+      <td>{email}</td>
+      <td>{fullName}</td>
+    </tr>
   );
 };

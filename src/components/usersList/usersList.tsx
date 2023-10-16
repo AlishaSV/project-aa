@@ -9,15 +9,27 @@ export const UsersList = () => {
     <div>Loading</div>
   ) : (
     <div>
-      <ul>
-        {data?.getAllUsers.users.map((item) => {
-          return (
-            <li key={item.id}>
-              <UserListItem id={item.id} email={item.email} fullName={item.fullName} />
-            </li>
-          );
-        })}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>email</th>
+            <th>full name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data?.getAllUsers.users.map((item) => {
+            return (
+              <UserListItem
+                key={item.id}
+                id={item.id}
+                email={item.email}
+                fullName={item.fullName}
+              />
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };
