@@ -15,3 +15,10 @@ export const StyledTableRow = styled.tr`
     cursor: pointer;
   }
 `;
+
+export const StyledTableItem = styled.td`
+  text-align: center;
+  padding-bottom: 2px;
+  border-bottom: 2px #969797 solid;
+  border-top: 1.5px #969797 solid;
+`;
