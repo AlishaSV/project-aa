@@ -4,7 +4,9 @@ import { GraphQLProvider } from '@/components/graphql';
 import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev';
 import { __DEV__ } from '@apollo/client/utilities/globals';
 import { EncryptLocalStorageContextProvider, UserContextProvider } from '@/components/utils';
-import { Layout } from '@/components/layout';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <EncryptLocalStorageContextProvider encryptSecret={process.env.ENCRYPTED_SECRET as string}>
         <UserContextProvider>
           <GraphQLProvider uri={process.env.GRAPHQL_URL as string}>
-            <Layout>{children}</Layout>
+            <body className={inter.className}>{children}</body>
           </GraphQLProvider>
         </UserContextProvider>
       </EncryptLocalStorageContextProvider>

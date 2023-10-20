@@ -5,6 +5,7 @@ import { useEncryptLocalStorageContext } from '@/components/utils/encryptLocalSt
 import { getAuthApolloLink, getGrabAuthTokenLink } from '@/components/graphql/links';
 import { useUserContext } from '@/components/utils';
 import { AUTH_LOCAL_STORAGE_KEY } from '@/components/commonConsts';
+import { useRouter } from 'next/navigation';
 
 type TGraphQLProviderProps = PropsWithChildren & {
   uri: string;
@@ -16,6 +17,7 @@ type TGraphQLProviderProps = PropsWithChildren & {
 export function GraphQLProvider({ children, uri }: TGraphQLProviderProps) {
   const { setDataToLocalStorage, getDataFromLocalStorage } = useEncryptLocalStorageContext();
   const { setIsUserLoggedIn } = useUserContext();
+  const router = useRouter();
 
   const [client] = useState(() => {
     const link = ApolloLink.from([
@@ -24,6 +26,7 @@ export function GraphQLProvider({ children, uri }: TGraphQLProviderProps) {
       /** grab auth token */
       getGrabAuthTokenLink((token) => {
         setIsUserLoggedIn(true);
+        router.back();
         setDataToLocalStorage(token, AUTH_LOCAL_STORAGE_KEY);
       }),
       new HttpLink({ uri, credentials: 'include' }),

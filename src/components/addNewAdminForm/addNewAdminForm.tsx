@@ -1,18 +1,18 @@
-'use client';
-import { Formik } from 'formik';
-import { StyledLoginForm } from '@/components/styledComponents/login/styledLoginForm';
-import { LoginFormSchema } from '@/components/loginForm/loginFormSchema';
-import { FormField } from '@/components/common';
-import * as React from 'react';
 import { FormWrapper } from '@/components/styledComponents/common/styledFormWrapper';
 import { StyledHeader } from '@/components/styledComponents/common/styledHeader';
-import { useLoginLazyQuery } from '@/components/loginForm/graphql/Login.gql';
-import Link from 'next/link';
-import { useUserContext } from '@/components/utils';
+import { Formik } from 'formik';
+import { LoginFormSchema } from '@/components/loginForm/loginFormSchema';
+import { StyledLoginForm } from '@/components/styledComponents/login/styledLoginForm';
+import { FormField } from '@/components/common';
+import * as React from 'react';
+import { useAddNewAdminLazyQuery } from '@/components/addNewAdminForm/graphql/addNewAdmin.gql';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface MyFormValues {
   email: string;
   password: string;
+  fullName: string;
 }
 
 type TFormField = {
@@ -22,6 +22,10 @@ type TFormField = {
 
 const fields: TFormField[] = [
   {
+    id: 'fullName',
+    label: 'full name',
+  },
+  {
     id: 'email',
     label: 'E-mail',
   },
@@ -30,13 +34,24 @@ const fields: TFormField[] = [
     label: 'Password',
   },
 ];
-export const LoginForm = () => {
-  const [LoginLazyQuery, { loading }] = useLoginLazyQuery();
-  const { isUserLoggedIn } = useUserContext();
-  const initialValues: MyFormValues = { email: '', password: '' };
-  return !isUserLoggedIn ? (
+
+export const AddNewAdminForm = () => {
+  const initialValues: MyFormValues = { fullName: '', email: '', password: '' };
+  const [AddNewAdminLazyQuery, { data, loading }] = useAddNewAdminLazyQuery();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (data) {
+      const newUserId = data?.addUser?.id;
+      if (newUserId) {
+        router.push(`/user/${newUserId}`);
+      }
+    }
+  }, [data, router]);
+  return (
     <FormWrapper>
-      <StyledHeader>Sign in</StyledHeader>
+      <StyledHeader>Add new admin</StyledHeader>
       {loading ? (
         <div>loading...</div>
       ) : (
@@ -44,10 +59,13 @@ export const LoginForm = () => {
           initialValues={initialValues}
           validationSchema={LoginFormSchema}
           onSubmit={async (values, actions) => {
-            await LoginLazyQuery({
+            await AddNewAdminLazyQuery({
               variables: {
-                email: values.email,
-                password: values.password,
+                user: {
+                  fullName: values.fullName,
+                  email: values.email,
+                  password: values.password,
+                },
               },
             });
           }}
@@ -61,15 +79,14 @@ export const LoginForm = () => {
                   label={item.label}
                   placeholder={item.label}
                   error={errors?.[item.id] && touched?.[item.id] ? errors?.[item.id] ?? null : null}
+                  showLabel={true}
                 />
               ))}
-              <button type="submit">Login</button>
+              <button type="submit">Submit</button>
             </StyledLoginForm>
           )}
         </Formik>
       )}
     </FormWrapper>
-  ) : (
-    <Link href={'/account'}>your account</Link>
   );
 };

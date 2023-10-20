@@ -1,5 +1,5 @@
 query Login($email: String!, $password: String!) {
-  logIn(email: $email, password: $password) {
+  logIn(logInInput: { email: $email, password: $password }) {
     token
   }
 }

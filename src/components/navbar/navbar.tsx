@@ -3,12 +3,11 @@ import { NavLink, TNavLinkProps } from '@/components/navbar/navLink';
 import styled from '@emotion/styled';
 
 export const StyledNavbar = styled.div`
-  padding: 5px;
+  padding: 7px;
   display: flex;
   flex-direction: column;
-  border-right: 6px solid gainsboro;
-  background: #b8bcbc;
-  gap: 1px;
+  border-right: 2px solid #969797;
+  gap: 0.5px;
   margin-right: 50px;
 `;
 

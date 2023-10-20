@@ -1,0 +1,5 @@
+query AddNewAdmin($user: RegisterInput!) {
+  addUser(addUser: $user) {
+    id
+  }
+}
