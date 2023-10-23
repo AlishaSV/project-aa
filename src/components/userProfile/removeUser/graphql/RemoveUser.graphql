@@ -1,0 +1,3 @@
+query RemoveUser($userId: Float!) {
+    removeUser(userId: $userId)
+}

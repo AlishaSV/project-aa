@@ -1,5 +1,6 @@
 import { MainTypes } from 'mesh/sources/main/types';
 import styled from '@emotion/styled';
+import { RemoveUser } from '@/components/userProfile/removeUser';
 
 type TUserMainInfoProps = MainTypes.User;
 
@@ -11,6 +12,7 @@ export const StyledGetUserMainInfo = styled.div`
 export const UserMainInfo = ({ id, email, fullName, createdAt }: TUserMainInfoProps) => {
   return (
     <StyledGetUserMainInfo>
+      <RemoveUser id={parseInt(id)} />
       <ul>
         <li>
           <span>id: {id}</span>
