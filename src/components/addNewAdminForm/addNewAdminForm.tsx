@@ -5,8 +5,7 @@ import { LoginFormSchema } from '@/components/loginForm/loginFormSchema';
 import { StyledLoginForm } from '@/components/styledComponents/login/styledLoginForm';
 import { FormField } from '@/components/common';
 import * as React from 'react';
-import { useAddNewAdminLazyQuery } from '@/components/addNewAdminForm/graphql/addNewAdmin.gql';
-import { useEffect } from 'react';
+import { useAddNewAdminMutation } from '@/components/addNewAdminForm/graphql/addNewAdmin.gql';
 import { useRouter } from 'next/navigation';
 
 interface MyFormValues {
@@ -37,18 +36,10 @@ const fields: TFormField[] = [
 
 export const AddNewAdminForm = () => {
   const initialValues: MyFormValues = { fullName: '', email: '', password: '' };
-  const [AddNewAdminLazyQuery, { data, loading }] = useAddNewAdminLazyQuery();
+  const [addNewAdminMutation, { data, loading }] = useAddNewAdminMutation();
 
   const router = useRouter();
 
-  useEffect(() => {
-    if (data) {
-      const newUserId = data?.addUser?.id;
-      if (newUserId) {
-        router.push(`/user/${newUserId}`);
-      }
-    }
-  }, [data, router]);
   return (
     <FormWrapper>
       <StyledHeader>Add new admin</StyledHeader>
@@ -59,7 +50,7 @@ export const AddNewAdminForm = () => {
           initialValues={initialValues}
           validationSchema={LoginFormSchema}
           onSubmit={async (values, actions) => {
-            await AddNewAdminLazyQuery({
+            const data = await addNewAdminMutation({
               variables: {
                 user: {
                   fullName: values.fullName,
@@ -68,6 +59,12 @@ export const AddNewAdminForm = () => {
                 },
               },
             });
+            if (data.data) {
+              const newUserId = data.data.addUser?.id;
+              if (newUserId) {
+                await router.push(`/user/${newUserId}`);
+              }
+            }
           }}
         >
           {({ errors, touched }) => (

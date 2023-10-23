@@ -1,4 +1,4 @@
-query AddNewAdmin($user: RegisterInput!) {
+mutation AddNewAdmin($user: RegisterInput!) {
   addUser(addUser: $user) {
     id
   }
