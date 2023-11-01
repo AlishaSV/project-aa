@@ -1,5 +1,6 @@
 import { useRemoveUserLazyQuery } from './graphql/RemoveUser.gql';
 import { useRouter } from 'next/navigation';
+import { StyledRemoveUserButton } from '@/components/styledComponents/user/styledRemoveUserButton';
 
 type TRemoveUserProps = {
   id: number;
@@ -9,7 +10,7 @@ export const RemoveUser = ({ id }: TRemoveUserProps) => {
   const [removeUserLazyQuery] = useRemoveUserLazyQuery();
   const router = useRouter();
   return (
-    <button
+    <StyledRemoveUserButton
       onClick={async () => {
         const data = await removeUserLazyQuery({ variables: { userId: id } });
         if (data.data?.removeUser) {
@@ -17,7 +18,7 @@ export const RemoveUser = ({ id }: TRemoveUserProps) => {
         }
       }}
     >
-      remove user
-    </button>
+      remove
+    </StyledRemoveUserButton>
   );
 };

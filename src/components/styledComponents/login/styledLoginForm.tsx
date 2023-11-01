@@ -5,8 +5,9 @@ import { Form } from 'formik';
 
 export const StyledLoginForm = styled(Form)`
   display: flex;
-  color: darkslateblue;
-  font-weight: bold;
+  color: #000000;
+  gap: 4px;
+  font-weight: normal;
   align-content: flex-start;
   align-items: flex-start;
   flex-direction: column;

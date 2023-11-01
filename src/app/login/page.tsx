@@ -14,6 +14,7 @@ const Login = () => {
       router.back();
     }
   }, [router, isUserLoggedIn]);
+
   return <LoginForm />;
 };
 

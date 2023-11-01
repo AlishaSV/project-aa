@@ -9,14 +9,7 @@ export const StyledAccount = styled.div`
   line-height: 1.23536;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: 'Barlow', sans-serif;
   color: #6e6e73;
   text-align: start;
   padding: 40px;

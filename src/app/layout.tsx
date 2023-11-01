@@ -4,9 +4,9 @@ import { GraphQLProvider } from '@/components/graphql';
 import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev';
 import { __DEV__ } from '@apollo/client/utilities/globals';
 import { EncryptLocalStorageContextProvider, UserContextProvider } from '@/components/utils';
-import { Inter } from 'next/font/google';
+import { Barlow } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Barlow({ subsets: ['latin'], weight: '200' });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
