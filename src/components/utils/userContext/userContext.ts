@@ -1,5 +1,6 @@
 'use client';
-import { createContext, Dispatch, SetStateAction, useContext } from 'react';
+import { createContext, Dispatch, SetStateAction } from 'react';
+import { useContext } from '@/components/utils';
 
 type TUserContext = {
   isUserLoggedIn: boolean;
@@ -7,11 +8,8 @@ type TUserContext = {
 };
 
 export const UserContext = createContext<TUserContext | null>(null);
+UserContext.displayName = 'UserContext';
 
 export const useUserContext = (): TUserContext => {
-  const context = useContext(UserContext);
-  if (!context) {
-    throw new Error('useUserContext has to be used within <UseContext.Provider>');
-  }
-  return context;
+  return useContext(UserContext);
 };
