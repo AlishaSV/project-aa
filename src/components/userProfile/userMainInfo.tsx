@@ -1,8 +1,8 @@
-import { MainTypes } from 'mesh/sources/main/types';
+import { User } from 'mesh';
 import styled from '@emotion/styled';
 import { RemoveUser } from '@/components/userProfile/removeUser';
 
-type TUserMainInfoProps = MainTypes.User;
+type TUserMainInfoProps = User;
 
 export const StyledGetUserMainInfo = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const UserMainInfo = ({ id, email, fullName, createdAt }: TUserMainInfoPr
           <span>id: {id}</span>
         </li>
         <li>
-          <span>email: {email}</span>
+          <span>email: {email} </span>
         </li>
         <li>
           <span>fullName: {fullName}</span>

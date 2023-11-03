@@ -1,7 +1,7 @@
 'use client';
 
-import { AddNewAdminFormMUI } from '@/components/addNewAdminForm/addNewAdminFormMUI';
+import { AddNewAdminForm } from '@/components/addNewAdminForm';
 
 export default function addNewAdmin() {
-  return <AddNewAdminFormMUI />;
+  return <AddNewAdminForm />;
 }

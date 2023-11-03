@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "mesh/*": ["./.mesh/*"]
+      "mesh/*": ["./.mesh/*"],
+      "mesh": ["./.mesh"]
     }
   },
   "ts-node": {
