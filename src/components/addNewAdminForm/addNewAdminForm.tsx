@@ -33,6 +33,7 @@ export const AddNewAdminForm = () => {
               placeholder={item.label}
               value={formik.values[item.id]}
               onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               error={formik.touched[item.id] && Boolean(formik.errors[item.id])}
               multiline
               variant="standard"
