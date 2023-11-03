@@ -4,5 +4,10 @@ query getUserMainInfo($id: Int!) {
     email
     fullName
     createdAt
+    updatedAt
+    role {
+      id
+      title
+    }
   }
 }
