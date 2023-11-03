@@ -1,6 +1,5 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { User } from 'mesh';
 import { useUpdateUserMainInfoMutation } from '@/components/userProfile/graphql/updateUserMainInfo.gql';
 import { useUserProfileContext } from '@/components/userProfile/userProfileContext';
 
