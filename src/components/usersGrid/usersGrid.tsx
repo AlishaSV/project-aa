@@ -1,7 +1,7 @@
 'use client';
 
 import { useGetAllUsersQuery } from '@/components/usersGrid/graphql/GetAllUsers.gql';
-import { DataGrid, GridColDef, GridRowId } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRowId, GridValueGetterParams } from '@mui/x-data-grid';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from '@mui/material';
@@ -19,7 +19,27 @@ const columns: GridColDef[] = [
     headerName: 'Full name',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
-    width: 200,
+    width: 150,
+  },
+  {
+    field: 'createdAt',
+    headerName: 'Created at',
+    width: 120,
+    valueGetter: (params: GridValueGetterParams) =>
+      `${new Date(parseInt(params.row.createdAt)).toDateString()}`,
+  },
+  {
+    field: 'updatedAt',
+    headerName: 'Updated at',
+    width: 120,
+    valueGetter: (params: GridValueGetterParams) =>
+      `${new Date(parseInt(params.row.updatedAt)).toDateString()}`,
+  },
+  {
+    field: 'role',
+    headerName: 'Role',
+    width: 100,
+    valueGetter: (params: GridValueGetterParams) => params.row.role.title,
   },
 ];
 

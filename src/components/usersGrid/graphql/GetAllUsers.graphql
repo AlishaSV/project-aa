@@ -4,6 +4,11 @@ query GetAllUsers {
       email
       id
       fullName
+      createdAt
+      updatedAt
+      role {
+        title
+      }
     }
   }
 }
