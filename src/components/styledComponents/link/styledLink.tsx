@@ -11,6 +11,6 @@ export const StyledLink = styled(Link)`
   letter-spacing: 0.01em;
   line-height: 1em;
   padding-bottom: 1.6vw;
-  text-transform: inherit;
+  text-transform: capitalize;
   text-decoration: none;
 `;

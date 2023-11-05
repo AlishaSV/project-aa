@@ -1,9 +1,10 @@
 'use client';
 import { NavLink, TNavLinkProps } from '@/components/navbar/navLink';
 import styled from '@emotion/styled';
+import { ChartPie, UsersThree } from '@phosphor-icons/react';
 
 export const StyledNavbar = styled.div`
-  padding: 7px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   background-color: #212121;
@@ -12,9 +13,9 @@ export const StyledNavbar = styled.div`
   margin-right: 50px;
 `;
 
-const links: TNavLinkProps[] = [
-  { url: '/', title: 'dashboard' },
-  { url: '/users', title: 'users' },
+const links: Omit<TNavLinkProps, 'isWithTitle'>[] = [
+  { url: '/', title: 'dashboard', icon: <ChartPie size={24} /> },
+  { url: '/users', title: 'users', icon: <UsersThree size={24} /> },
 ];
 export const Navbar = () => {
   return (
