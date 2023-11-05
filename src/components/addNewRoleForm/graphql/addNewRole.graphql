@@ -1,0 +1,6 @@
+mutation AddRole($title: String!) {
+    addRole(title: $title) {
+        id
+        title
+    }
+}
