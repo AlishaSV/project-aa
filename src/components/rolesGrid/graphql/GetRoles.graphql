@@ -3,6 +3,7 @@ query GetRoles {
         roles {
             id
             title
+            description
         }
     }
 }

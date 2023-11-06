@@ -9,6 +9,11 @@ const columns: GridColDef[] = [
     headerName: 'Role',
     width: 100,
   },
+  {
+    field: 'description',
+    headerName: 'Description',
+    width: 150,
+  },
 ];
 
 export const RolesGrid = () => {
