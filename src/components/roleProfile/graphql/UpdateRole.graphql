@@ -1,0 +1,3 @@
+mutation UpdateRole($roleId: Float!, $role: AddRoleInput!) {
+    updateRole(role: $role, roleId: $roleId)
+}

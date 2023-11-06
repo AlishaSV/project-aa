@@ -1,0 +1,9 @@
+query GetRole ($id: Int!)  {
+    getRoles(filter: {id: $id }) {
+        roles {
+            id
+            title
+            description
+        }
+    }
+}
